@@ -103,14 +103,6 @@ SplunkStreamEvent.prototype.config = function() {
 SplunkStreamEvent.prototype.log = function (level, msg, meta, callback) {
     var self = this;
 
-    if (meta instanceof Error) {
-        meta = {
-            errmsg: meta.message,
-            name: meta.name,
-            stack: meta.stack
-        };
-    }
-
     var payload = {
         message: {
             msg: msg
